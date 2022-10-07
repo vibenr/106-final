@@ -3,6 +3,8 @@ import Header from '../Header/Header'
 import Unverified from '../unverified/Unverified'
 import AddLand from '../AddLand/AddLand'
 import MyLand from '../MyLand/MyLand'
+import SearchLand from '../Search_land/search'
+import Payment from '../Payment_page/Payment'
 
 export default function ClientDashboard() {
     return (
@@ -10,7 +12,9 @@ export default function ClientDashboard() {
             <Header />
             <Unverified />
             <AddLand />
-            <MyLand/>
+            <MyLand />
+            <SearchLand/>
+            <Payment/>
         </>
     )
 }
