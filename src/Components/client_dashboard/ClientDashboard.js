@@ -1,5 +1,4 @@
 import { Fragment } from 'react'
-import Avatar from 'react-avatar';
 import { Popover, Transition } from '@headlessui/react'
 import {
     ArrowDownLeftIcon,
@@ -19,6 +18,8 @@ import {
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Avatar} from '@chakra-ui/react'
+import Unverified from '../AddLand/AddLand';
 
 const solutions = [
     {
@@ -71,6 +72,7 @@ function classNames(...classes) {
 
 export default function Example() {
     return (
+        <>
         <Popover className="relative bg-white">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
@@ -136,19 +138,6 @@ export default function Example() {
                                                         </a>
                                                     ))}
                                                 </div>
-                                                {/* <div className="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                          {callsToAction.map((item) => (
-                            <div key={item.name} className="flow-root">
-                              <a
-                                href={item.href}
-                                className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-100"
-                              >
-                                <item.icon className="h-6 w-6 flex-shrink-0 text-gray-400" aria-hidden="true" />
-                                <span className="ml-3">{item.name}</span>
-                              </a>
-                            </div>
-                          ))}
-                        </div> */}
                                             </div>
                                         </Popover.Panel>
                                     </Transition>
@@ -165,7 +154,7 @@ export default function Example() {
                         <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
                             Requests
                         </a>
-                        <Avatar name="Wim Mostmans" />
+                        <Avatar size='md' name='Ryan Florence' src='https://bit.ly/ryan-florence' />
                     </Popover.Group>
 
                     {/* avatar section  */}
@@ -253,8 +242,13 @@ export default function Example() {
                             </div>
                         </div>
                     </div>
+                    
                 </Popover.Panel>
             </Transition>
-        </Popover>
+            </Popover>
+            <div>
+                <Unverified/>
+            </div>
+            </>
     )
 }
