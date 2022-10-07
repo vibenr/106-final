@@ -1,14 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from './Components/client_dashboard/ClientDashboard.js'
+import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
   return (
-    <div className="App">
-    <div className = "text-2xl text-red-600">
-      <Home/>
+    <ChakraProvider>
+      <div className="App">
+        <div className="text-2xl text-red-600">
+          <Home />
+        </div>
       </div>
-    </div>
+    </ChakraProvider>
   );
 }
 
