@@ -9,7 +9,7 @@ const navigation = [
   { name: 'Connect Wallet', href: '#' },
 ]
 
-export default function Example() {
+export default function Home() {
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl">
