@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import Home from './Components/client_dashboard/ClientDashboard.js'
+import logo from './logo.svg'
+import './App.css'
+import Home from './Components/Home/Home.js'
 import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         </div>
       </div>
     </ChakraProvider>
-  );
+  )
 }
 
-export default App;
+export default App

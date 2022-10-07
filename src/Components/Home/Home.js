@@ -1,7 +1,9 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-
+import { ConnectButton } from 'web3uikit'
+import { useMoralis, useMoralisQuery } from 'react-moralis'
+import { useNavigate } from 'react-router-dom'
 const navigation = [
   { name: 'Home', href: '#' },
   { name: 'Land Gallery', href: '#' },
@@ -10,6 +12,30 @@ const navigation = [
 ]
 
 export default function Home() {
+  const navigate = useNavigate()
+  const { account, isWeb3Enabled } = useMoralis()
+  const { fetch } = useMoralisQuery(
+    'Users',
+    (query) => query.equalTo('useraddress', account),
+    [],
+    { autoFetch: true },
+  )
+
+  const basicQuery = async () => {
+    const result = await fetch()
+    console.log(result)
+    if (result.length == 0) {
+      navigate('/register')
+    } else {
+      navigate('/client_dash')
+    }
+  }
+  useEffect(() => {
+    if (isWeb3Enabled) {
+      basicQuery()
+    }
+  }, [isWeb3Enabled])
+
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl">
@@ -26,7 +52,10 @@ export default function Home() {
 
           <Popover>
             <div className="relative px-4 pt-6 sm:px-6 lg:px-8">
-              <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+              <nav
+                className="relative flex items-center justify-between sm:h-10 lg:justify-start"
+                aria-label="Global"
+              >
                 <div className="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
                   <div className="flex w-full items-center justify-between md:w-auto">
                     <div className="-mr-2 flex items-center md:hidden">
@@ -91,7 +120,7 @@ export default function Home() {
                     href="#"
                     className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100"
                   >
-                    Connect Wallet
+                    <ConnectButton moralisAuth={false} />
                   </a>
                 </div>
               </Popover.Panel>
@@ -102,12 +131,12 @@ export default function Home() {
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
                 <span className="block xl:inline">Land Registry using</span>{' '}
-                <span className="block text-indigo-600 xl:inline">Blockchain</span>{' '}
+                <span className="block text-indigo-600 xl:inline">
+                  Blockchain
+                </span>{' '}
                 <span className="block xl:inline">Technology</span>{' '}
               </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-
-              </p>
+              <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0"></p>
               <br />
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
@@ -115,7 +144,7 @@ export default function Home() {
                     href="#"
                     className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
                   >
-                    Connect Wallet
+                    <ConnectButton moralisAuth={false} />
                   </a>
                 </div>
               </div>

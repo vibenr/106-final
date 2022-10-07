@@ -55,56 +55,6 @@ async function main() {
     tableName: 'ItemListed',
   }
 
-  let newUserDetails = {
-    chainId: moralisChainId,
-    address: contractAddress,
-    sync_historical: true,
-    topic: 'NewLandAdded(uint,string,uint,string,uint,string)',
-    abi: {
-      anonymous: false,
-      inputs: [
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: '_area',
-          type: 'uint256',
-        },
-        {
-          indexed: false,
-          internalType: 'string',
-          name: '_address',
-          type: 'string',
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'landPrice',
-          type: 'uint256',
-        },
-        {
-          indexed: false,
-          internalType: 'string',
-          name: '_allLatiLongi',
-          type: 'string',
-        },
-        {
-          indexed: true,
-          internalType: 'uint256',
-          name: '_propertyPID',
-          type: 'uint256',
-        },
-        {
-          indexed: true,
-          internalType: 'string',
-          name: '_surveyNum',
-          type: 'string',
-        },
-      ],
-      name: 'NewLandAdded',
-      type: 'event',
-    },
-    tableName: 'LandDetails',
-  }
 
   let NewUserRegister = {
     chainId: moralisChainId,
