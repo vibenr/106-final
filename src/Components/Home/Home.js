@@ -87,12 +87,7 @@ export default function Home() {
                       </a>
                     ))}
                   </div>
-                  <a
-                    href="#"
-                    className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100"
-                  >
-                    Connect Wallet
-                  </a>
+                  <ConnectButton />
                 </div>
               </Popover.Panel>
             </Transition>

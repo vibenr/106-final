@@ -7,7 +7,7 @@ function App() {
   return (
     <ChakraProvider>
       <div className="App">
-        <div className="text-2xl text-red-600">
+        <div className="text-2xl">
           <Home />
         </div>
       </div>

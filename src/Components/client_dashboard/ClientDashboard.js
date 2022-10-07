@@ -14,10 +14,10 @@ export default function ClientDashboard() {
             <Header />
             <Unverified />
             <AddLand />
+            <AddLandForm/>
             <MyLand />
             <SearchLand/>
             <Payment />
-            <AddLandForm/>
         </>
     )
 }
